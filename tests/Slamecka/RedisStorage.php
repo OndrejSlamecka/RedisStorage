@@ -10,7 +10,7 @@
 use Slamecka\RedisStorage,
 	Nette\Caching\Cache;
 
-require __DIR__ . '/../../../../nette/Nette/loader.php';
+require __DIR__ . '/../../vendor/nette/nette/Nette/loader.php';
 require __DIR__ . '/../../libs/Slamecka/RedisStorage.php';
 
 /* TESTING FUNCTIONS */
