@@ -18,7 +18,8 @@ function fail($func)
 {
 	$trace = debug_backtrace(); 
 	$trace = end($trace);
-	exit ("Failed $func on line " . $trace['line'] . "\n");
+	echo "Failed $func on line " . $trace['line'] . "\n";
+	exit(254);
 }
 
 function assertTrue($val)
