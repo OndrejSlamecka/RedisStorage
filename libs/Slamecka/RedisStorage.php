@@ -204,8 +204,9 @@ class RedisStorage extends Nette\Object implements Nette\Caching\IStorage
 			$this->redis->delete($keys);
 
 			// Remove keys keeping information about expiration time
-			$expirationKeys = array_map(function($key) {
-				return self::NAMESPACE_EXPIRATION . Cache::NAMESPACE_SEPARATOR . $key;
+			$_this = $this;
+			$expirationKeys = array_map(function($key) use ($_this) {
+				return $_this::NAMESPACE_EXPIRATION . Cache::NAMESPACE_SEPARATOR . $key;
 			}, $keys);
 
 			$this->redis->delete($expirationKeys);
