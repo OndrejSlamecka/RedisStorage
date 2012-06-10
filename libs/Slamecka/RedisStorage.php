@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * RedisStorage for Nette Framework cache.
  *
  * @author Ondrej Slamecka, www.slamecka.cz
@@ -187,7 +187,7 @@ class RedisStorage extends Nette\Object implements Nette\Caching\IStorage
 			if (isset($conds[Cache::PRIORITY])) {
 
 				$byPriority = $this->redis->zRangeByScore(self::KEY_PRIORITIES, 0, $conds[Cache::PRIORITY]);
-				self::arrayAppend($keys, $byPriority);				
+				self::arrayAppend($keys, $byPriority);
 
 				$this->redis->zDeleteRangeByScore(self::KEY_PRIORITIES, 0, $conds[Cache::PRIORITY]);
 			}

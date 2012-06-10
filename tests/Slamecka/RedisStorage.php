@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * RedisStorage for Nette Framework cache.
  *
  * @author Ondrej Slamecka, www.slamecka.cz
@@ -16,7 +16,7 @@ require __DIR__ . '/../../libs/Slamecka/RedisStorage.php';
 /* TESTING FUNCTIONS */
 function fail($func)
 {
-	$trace = debug_backtrace(); 
+	$trace = debug_backtrace();
 	$trace = end($trace);
 	echo "Failed $func on line " . $trace['line'] . "\n";
 	exit(254);
