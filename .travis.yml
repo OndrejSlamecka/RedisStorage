@@ -8,7 +8,7 @@ before_script:
   - "sh -c 'curl -s http://getcomposer.org/installer | php'"
   - "sh -c 'php composer.phar install --quiet'"
   - chmod +x ./redis-driver-installer.sh
-  - sh ./redis-driver-installer.sh
+  - sh ./redis-driver-installer.sh &>/dev/null
 
 script: "sh -c 'php tests/Slamecka/RedisStorage.php'"
 
