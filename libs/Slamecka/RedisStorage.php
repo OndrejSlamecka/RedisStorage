@@ -9,8 +9,9 @@
 
 namespace Slamecka;
 
-use Nette,
-	Nette\Caching\Cache;
+use Redis,
+	Nette,
+	Nette\Caching\Cache;	
 
 
 
@@ -33,7 +34,7 @@ class RedisStorage extends Nette\Object implements Nette\Caching\IStorage
 		NAMESPACE_CALLBACKS = 'callbacks',
 		KEY_PRIORITIES = 'priorities';
 
-	/** @var \Redis */
+	/** @var Redis */
 	private $redis;
 
 
@@ -49,14 +50,13 @@ class RedisStorage extends Nette\Object implements Nette\Caching\IStorage
 
 
 
-	public function __construct($host = 'localhost', $port = 6379)
+	public function __construct(Redis $redis)
 	{
 		if (!static::isAvailable()) {
 			throw new Nette\NotSupportedException("PHP extension 'redis' is not loaded.");
 		}
 
-		$this->redis = new \Redis;
-		$this->redis->connect($host, $port);
+		$this->redis = $redis;
 	}
 
 
